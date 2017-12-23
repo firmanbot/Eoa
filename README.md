@@ -1,5 +1,7 @@
 # line-bot-Tutorial
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
  教你建立自己的 line-bot 使用 python flask 📝
 
  line-bot-tutorial use python flask
