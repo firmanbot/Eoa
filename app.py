@@ -486,7 +486,6 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, buttons_template)
         return 0
-    
     if event.message.text == "Rules":
         imagemap_message = ImagemapSendMessage(
             base_url='http://i64.tinypic.com/2z8b9c3.jpg',
@@ -503,7 +502,6 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, imagemap_message)
         return 0
-
     if event.message.text == "Help":
         buttons_template = TemplateSendMessage(
             alt_text='目錄 template',
