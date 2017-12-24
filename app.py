@@ -486,34 +486,52 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, buttons_template)
         return 0
-
-    buttons_template = TemplateSendMessage(
-        alt_text='目錄 template',
-        template=ButtonsTemplate(
-            title='選擇服務',
-            text='請選擇',
-            thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
+    
+    if event.message.text == "Rules":
+        imagemap_message = ImagemapSendMessage(
+            base_url='http://i64.tinypic.com/2z8b9c3.jpg',
+            alt_text='Rules Grup Evolved Rangers',
+            base_size=BaseSize(height=1040, width=1040),
             actions=[
-                MessageTemplateAction(
-                    label='開始玩',
-                    text='開始玩'
-                ),
-                URITemplateAction(
-                    label='影片介紹 阿肥bot',
-                    uri='https://youtu.be/1IxtWgWxtlE'
-                ),
-                URITemplateAction(
-                    label='如何建立自己的 Line Bot',
-                    uri='https://github.com/twtrubiks/line-bot-tutorial'
-                ),
-                URITemplateAction(
-                    label='聯絡作者',
-                    uri='https://www.facebook.com/TWTRubiks?ref=bookmarks'
+                MessageImagemapAction(
+                    text='Dibaca ya bukan di klik gambarnya',
+                    area=ImagemapArea(
+                        x=520, y=0, width=520, height=1040
+                    )
                 )
             ]
         )
-    )
-    line_bot_api.reply_message(event.reply_token, buttons_template)
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
+
+    if event.message.text == "Help":
+        buttons_template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ButtonsTemplate(
+                title='選擇服務',
+                text='請選擇',
+                thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
+                actions=[
+                    MessageTemplateAction(
+                        label='開始玩',
+                        text='開始玩'
+                    ),
+                    URITemplateAction(
+                        label='影片介紹 阿肥bot',
+                        uri='https://youtu.be/1IxtWgWxtlE'
+                    ),
+                    URITemplateAction(
+                        label='如何建立自己的 Line Bot',
+                        uri='https://github.com/twtrubiks/line-bot-tutorial'
+                    ),
+                    URITemplateAction(
+                        label='聯絡作者',
+                        uri='https://www.facebook.com/TWTRubiks?ref=bookmarks'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
 
 
 if __name__ == '__main__':
